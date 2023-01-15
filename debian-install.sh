@@ -23,6 +23,7 @@ DEVELOPMENT_PACKAGES="build-essential cmake python3-dev python3-pip autoconf aut
 PLATFORM_APP_PACKAGES="snapd flatpak"
 MEDIA_PACKAGES="vlc gimp inkscape"
 BROWSER_PACKAGES="firefox-esr chromium"
+OFFICE_PACKAGES="libreoffice gnome-calculator"
 
 # Update repositories
 echo "" > /etc/apt/sources.list
@@ -34,9 +35,16 @@ echo "deb http://security.debian.org/debian-security bookworm-security main cont
 apt update && apt upgrade -y
 
 # Install packages
-apt install -y $INITIAL_PACKAGES $DRIVERS_PACKAGES $GRAPHICS_PACKAGES $XFCE_PACKAGES $X_PACKAGES $DEVELOPMENT_PACKAGES $PLATFORM_APP_PACKAGES $MEDIA_PACKAGES $BROWSER_PACKAGES
-
-source /etc/bash_completion
+apt install -y $INITIAL_PACKAGES \
+  $DRIVERS_PACKAGES \
+  $GRAPHICS_PACKAGES \
+  $XFCE_PACKAGES \
+  $X_PACKAGES \
+  $DEVELOPMENT_PACKAGES \
+  $PLATFORM_APP_PACKAGES \
+  $MEDIA_PACKAGES \
+  $BROWSER_PACKAGES \
+  $OFFICE_PACKAGES
 
 # Install docker
 snap install docker
