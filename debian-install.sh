@@ -14,7 +14,7 @@ if [ "$EUID" -ne 0 ];then
   exit 1
 fi
 
-INITIAL_PACKAGES="git htop curl wget vim neovim bash-completion"
+INITIAL_PACKAGES="git htop curl wget vim bash-completion"
 DRIVERS_PACKAGES="firmware-amd-graphics firmware-atheros"
 GRAPHICS_PACKAGES="xorg"
 XFCE_PACKAGES="xfce4 xfce4-goodies xfce4-terminal menulibre"
@@ -71,6 +71,9 @@ snap install dbeaver-ce
 
 # Install Firefox
 snap install firefox
+
+# Install Neovim
+snap install --beta nvim --classic
 
 # Install Nerd Fonts
 FONT_DIR="/home/$CURRENT_USER/.fonts"
