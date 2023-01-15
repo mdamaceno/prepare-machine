@@ -24,7 +24,7 @@ PLATFORM_APP_PACKAGES="snapd flatpak"
 MEDIA_PACKAGES="vlc gimp inkscape imagemagick"
 BROWSER_PACKAGES="firefox-esr chromium"
 OFFICE_PACKAGES="libreoffice gnome-calculator"
-OTHER_PACKAGES="wireshark nmap transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow"
+OTHER_PACKAGES="wireshark nmap transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa redshift alacritty"
 
 # Update repositories
 echo "" > /etc/apt/sources.list
@@ -86,3 +86,7 @@ unzip $FONT_DIR/JetBrainsMono.zip -d $FONT_DIR/JetBrainsMono && rm -f $FONT_DIR/
 unzip $FONT_DIR/Noto.zip -d $FONT_DIR/Noto && rm -f $FONT_DIR/Noto.zip
 
 chown -R $CURRENT_USER:$CURRENT_USER $FONT_DIR
+
+# Install MS Fonts
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+sudo apt install ttf-mscorefonts-installer
