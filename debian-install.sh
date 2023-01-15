@@ -1,10 +1,18 @@
 #!/usr/bin/env sh
 
-set -e
-
 # This script is used to install Debian on a new machine.
 
-CURRENT_USER=$USER
+CURRENT_USER="$1"
+
+if [ ! -n "$CURRENT_USER" ]; then
+  echo "Error: No user specified."
+  exit 1
+fi
+
+if [ "$EUID" -ne 0 ];then
+  echo "Please run this script as root"
+  exit 1
+fi
 
 INITIAL_PACKAGES="git htop curl wget vim neovim bash-completion"
 DRIVERS_PACKAGES="firmware-amd-graphics firmware-atheros"
@@ -16,13 +24,10 @@ PLATFORM_APP_PACKAGES="snapd flatpak"
 MEDIA_PACKAGES="vlc gimp inkscape"
 BROWSER_PACKAGES="firefox-esr chromium"
 
-# Enter as root
-su -
-
-> /etc/apt/sources.list
-
+# Update repositories
+echo "" > /etc/apt/sources.list
 echo "deb http://mirror.unesp.br/debian/ bookworm main contrib non-free" >> /etc/apt/sources.list
-echo "deb http://mirror.unesp.br/debian/ bookworm main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://mirror.unesp.br/debian/ bookworm-updates main contrib non-free" >> /etc/apt/sources.list
 echo "deb http://security.debian.org/debian-security bookworm main contrib non-free" >> /etc/apt/sources.list
 
 # Update the system
@@ -36,7 +41,7 @@ source /etc/bash_completion
 # Install docker
 snap install docker
 
-source PATH=$PATH:/snap/bin
+export PATH=$PATH:/snap/bin
 
 addgroup --system docker
 adduser $CURRENT_USER docker
