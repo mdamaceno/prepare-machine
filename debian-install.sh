@@ -28,7 +28,7 @@ BROWSER_PACKAGES="firefox-esr chromium"
 echo "" > /etc/apt/sources.list
 echo "deb http://mirror.unesp.br/debian/ bookworm main contrib non-free" >> /etc/apt/sources.list
 echo "deb http://mirror.unesp.br/debian/ bookworm-updates main contrib non-free" >> /etc/apt/sources.list
-echo "deb http://security.debian.org/debian-security bookworm main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://security.debian.org/debian-security bookworm-security main contrib non-free" >> /etc/apt/sources.list
 
 # Update the system
 apt update && apt upgrade -y
