@@ -24,7 +24,7 @@ PLATFORM_APP_PACKAGES="snapd flatpak"
 MEDIA_PACKAGES="vlc gimp inkscape imagemagick"
 BROWSER_PACKAGES="chromium"
 OFFICE_PACKAGES="libreoffice gnome-calculator"
-OTHER_PACKAGES="wireshark nmap transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa redshift alacritty"
+OTHER_PACKAGES="wireshark nmap transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa redshift alacritty neofetch ttf-mscorefonts-installer"
 
 # Update repositories
 echo "" > /etc/apt/sources.list
@@ -36,6 +36,8 @@ echo "deb http://security.debian.org/debian-security bookworm-security main cont
 apt update && apt upgrade -y
 
 # Install packages
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+apt install ttf-mscorefonts-installer
 apt install -y $INITIAL_PACKAGES \
   $DRIVERS_PACKAGES \
   $GRAPHICS_PACKAGES \
@@ -95,7 +97,3 @@ unzip $FONT_DIR/JetBrainsMono.zip -d $FONT_DIR/JetBrainsMono && rm -f $FONT_DIR/
 unzip $FONT_DIR/Noto.zip -d $FONT_DIR/Noto && rm -f $FONT_DIR/Noto.zip
 
 chown -R $CURRENT_USER:$CURRENT_USER $FONT_DIR
-
-# Install MS Fonts
-echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-apt install ttf-mscorefonts-installer
