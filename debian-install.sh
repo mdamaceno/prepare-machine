@@ -49,14 +49,13 @@ apt install -y $INITIAL_PACKAGES \
   $OFFICE_PACKAGES \
   $OTHER_PACKAGES
 
+# Link Snap packages to XFCE
+ln -s /var/lib/snapd/desktop/applications /usr/share/applications/snapd
+
 # Install docker
 snap install docker
-
-export PATH=$PATH:/snap/bin
-
 addgroup --system docker
 adduser $CURRENT_USER docker
-newgrp docker
 
 # Install Slack
 snap install slack --classic
