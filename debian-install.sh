@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # This script is used to install Debian on a new machine.
 
@@ -9,7 +9,7 @@ if [ ! -n "$CURRENT_USER" ]; then
   exit 1
 fi
 
-if [ "$EUID" -ne 0 ];then
+if [ $EUID -ne 0 ]; then
   echo "Please run this script as root"
   exit 1
 fi
