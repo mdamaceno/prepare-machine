@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
+set -e
 
 # This script is used to install Debian on a new machine.
 
