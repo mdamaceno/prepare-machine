@@ -49,6 +49,27 @@ apt install -y $INITIAL_PACKAGES \
   $OFFICE_PACKAGES \
   $OTHER_PACKAGES
 
+# Install Nerd Fonts
+FONT_DIR="/home/$CURRENT_USER/.fonts"
+mkdir $FONT_DIR
+mkdir $FONT_DIR/DroidSansMono && wget -O $FONT_DIR/DroidSansMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/DroidSansMono.zip
+mkdir $FONT_DIR/DejaVuSansMono && wget -O $FONT_DIR/DejaVuSansMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/DejaVuSansMono.zip
+mkdir $FONT_DIR/FiraCode && wget -O $FONT_DIR/FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
+mkdir $FONT_DIR/FiraMono && wget -O $FONT_DIR/FiraMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip
+mkdir $FONT_DIR/Inconsolata && wget -O $FONT_DIR/Inconsolata.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Inconsolata.zip
+mkdir $FONT_DIR/JetBrainsMono && wget -O $FONT_DIR/JetBrainsMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
+mkdir $FONT_DIR/Noto && wget -O $FONT_DIR/Noto.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Noto.zip
+
+unzip $FONT_DIR/DroidSansMono.zip -d $FONT_DIR/DroidSansMono && rm -f $FONT_DIR/DroidSansMono.zip
+unzip $FONT_DIR/DejaVuSansMono.zip -d $FONT_DIR/DejaVuSansMono && rm -f $FONT_DIR/DejaVuSansMono.zip
+unzip $FONT_DIR/FiraCode.zip -d $FONT_DIR/FiraCode && rm -f $FONT_DIR/FiraCode.zip
+unzip $FONT_DIR/FiraMono.zip -d $FONT_DIR/FiraMono && rm -f $FONT_DIR/FiraMono.zip
+unzip $FONT_DIR/Inconsolata.zip -d $FONT_DIR/Inconsolata && rm -f $FONT_DIR/Inconsolata.zip
+unzip $FONT_DIR/JetBrainsMono.zip -d $FONT_DIR/JetBrainsMono && rm -f $FONT_DIR/JetBrainsMono.zip
+unzip $FONT_DIR/Noto.zip -d $FONT_DIR/Noto && rm -f $FONT_DIR/Noto.zip
+
+chown -R $CURRENT_USER:$CURRENT_USER $FONT_DIR
+
 # Link Snap packages to XFCE
 ln -s /var/lib/snapd/desktop/applications /usr/share/applications/snapd
 
@@ -74,24 +95,3 @@ snap install firefox
 
 # Install Neovim
 snap install --beta nvim --classic
-
-# Install Nerd Fonts
-FONT_DIR="/home/$CURRENT_USER/.fonts"
-mkdir $FONT_DIR
-mkdir $FONT_DIR/DroidSansMono && wget -O $FONT_DIR/DroidSansMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/DroidSansMono.zip
-mkdir $FONT_DIR/DejaVuSansMono && wget -O $FONT_DIR/DejaVuSansMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/DejaVuSansMono.zip
-mkdir $FONT_DIR/FiraCode && wget -O $FONT_DIR/FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
-mkdir $FONT_DIR/FiraMono && wget -O $FONT_DIR/FiraMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip
-mkdir $FONT_DIR/Inconsolata && wget -O $FONT_DIR/Inconsolata.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Inconsolata.zip
-mkdir $FONT_DIR/JetBrainsMono && wget -O $FONT_DIR/JetBrainsMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
-mkdir $FONT_DIR/Noto && wget -O $FONT_DIR/Noto.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Noto.zip
-
-unzip $FONT_DIR/DroidSansMono.zip -d $FONT_DIR/DroidSansMono && rm -f $FONT_DIR/DroidSansMono.zip
-unzip $FONT_DIR/DejaVuSansMono.zip -d $FONT_DIR/DejaVuSansMono && rm -f $FONT_DIR/DejaVuSansMono.zip
-unzip $FONT_DIR/FiraCode.zip -d $FONT_DIR/FiraCode && rm -f $FONT_DIR/FiraCode.zip
-unzip $FONT_DIR/FiraMono.zip -d $FONT_DIR/FiraMono && rm -f $FONT_DIR/FiraMono.zip
-unzip $FONT_DIR/Inconsolata.zip -d $FONT_DIR/Inconsolata && rm -f $FONT_DIR/Inconsolata.zip
-unzip $FONT_DIR/JetBrainsMono.zip -d $FONT_DIR/JetBrainsMono && rm -f $FONT_DIR/JetBrainsMono.zip
-unzip $FONT_DIR/Noto.zip -d $FONT_DIR/Noto && rm -f $FONT_DIR/Noto.zip
-
-chown -R $CURRENT_USER:$CURRENT_USER $FONT_DIR
