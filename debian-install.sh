@@ -37,7 +37,6 @@ apt update && apt upgrade -y
 
 # Install packages
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-apt install ttf-mscorefonts-installer
 apt install -y $INITIAL_PACKAGES \
   $DRIVERS_PACKAGES \
   $GRAPHICS_PACKAGES \
