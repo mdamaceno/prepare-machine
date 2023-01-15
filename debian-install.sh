@@ -66,6 +66,9 @@ snap install postman
 # Install Visual Studio Code
 snap install code --classic
 
+# Install Dbeaver
+snap install dbeaver-ce
+
 # Install Nerd Fonts
 FONT_DIR="/home/$CURRENT_USER/.fonts"
 mkdir $FONT_DIR
