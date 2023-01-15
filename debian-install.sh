@@ -22,7 +22,7 @@ X_PACKAGES="p7zip-full zip unzip rar unrar zstd"
 DEVELOPMENT_PACKAGES="build-essential cmake python3-dev python3-pip autoconf automake libtool cmake libyaml-dev libpq-dev libmariadb-dev sqlite3"
 PLATFORM_APP_PACKAGES="snapd flatpak"
 MEDIA_PACKAGES="vlc gimp inkscape imagemagick"
-BROWSER_PACKAGES="firefox-esr chromium"
+BROWSER_PACKAGES="chromium"
 OFFICE_PACKAGES="libreoffice gnome-calculator"
 OTHER_PACKAGES="wireshark nmap transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa redshift alacritty"
 
@@ -68,6 +68,9 @@ snap install code --classic
 
 # Install Dbeaver
 snap install dbeaver-ce
+
+# Install Firefox
+snap install firefox
 
 # Install Nerd Fonts
 FONT_DIR="/home/$CURRENT_USER/.fonts"
