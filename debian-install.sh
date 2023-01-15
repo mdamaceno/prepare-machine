@@ -54,5 +54,3 @@ export PATH=$PATH:/snap/bin
 addgroup --system docker
 adduser $CURRENT_USER docker
 newgrp docker
-snap disable docker
-snap enable docker
