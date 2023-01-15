@@ -72,6 +72,7 @@ chown -R $CURRENT_USER:$CURRENT_USER $FONT_DIR
 
 # Link Snap packages to XFCE
 ln -s /var/lib/snapd/desktop/applications /usr/share/applications/snapd
+echo "export PATH=\$PATH:/snap/bin" >> /home/$CURRENT_USER/.bashrc
 
 # Install docker
 snap install docker
