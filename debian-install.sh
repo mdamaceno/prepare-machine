@@ -92,4 +92,4 @@ chown -R $CURRENT_USER:$CURRENT_USER $FONT_DIR
 
 # Install MS Fonts
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-sudo apt install ttf-mscorefonts-installer
+apt install ttf-mscorefonts-installer
