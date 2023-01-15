@@ -15,15 +15,13 @@ MEDIA_PACKAGES="vlc gimp inkscape"
 BROWSER_PACKAGES="firefox-esr chromium"
 
 # Enter as root
-sudo su
+su -
 
 > /etc/apt/sources.list
 
-/etc/apt/sources.list << EOF
-deb http://mirror.unesp.br/debian/ bookworm main contrib non-free
-deb http://mirror.unesp.br/debian/ bookworm main contrib non-free
-deb http://security.debian.org/debian-security bookworm main contrib non-free
-EOF
+echo "deb http://mirror.unesp.br/debian/ bookworm main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://mirror.unesp.br/debian/ bookworm main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://security.debian.org/debian-security bookworm main contrib non-free" >> /etc/apt/sources.list
 
 # Update the system
 apt update && apt upgrade -y
