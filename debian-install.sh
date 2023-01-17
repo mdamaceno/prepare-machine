@@ -24,7 +24,8 @@ PLATFORM_APP_PACKAGES="snapd flatpak"
 MEDIA_PACKAGES="vlc gimp inkscape imagemagick"
 BROWSER_PACKAGES="chromium"
 OFFICE_PACKAGES="libreoffice gnome-calculator"
-OTHER_PACKAGES="wireshark nmap transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa redshift alacritty neofetch ttf-mscorefonts-installer"
+NETWORK_PACKAGES="nmap network-manager-gnome network-manager-openvpn network-manager-openvpn-gnome"
+OTHER_PACKAGES="transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa redshift alacritty neofetch ttf-mscorefonts-installer"
 
 # Update repositories
 echo "" > /etc/apt/sources.list
@@ -47,6 +48,7 @@ apt install -y $INITIAL_PACKAGES \
   $MEDIA_PACKAGES \
   $BROWSER_PACKAGES \
   $OFFICE_PACKAGES \
+  $NETWORK_PACKAGES \
   $OTHER_PACKAGES
 
 # Install Nerd Fonts
