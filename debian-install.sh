@@ -16,16 +16,15 @@ fi
 
 INITIAL_PACKAGES="git htop curl wget vim bash-completion"
 DRIVERS_PACKAGES="firmware-amd-graphics firmware-atheros"
-GRAPHICS_PACKAGES="xorg"
-XFCE_PACKAGES="xfce4 xfce4-goodies xfce4-terminal menulibre"
+KDE_PACKAGES="kde-plasma-desktop gwenview kate kcalc kde-spectacle okular plasma-pa kmix plasma-runners-addons plasma-widgets-addons plasma-nm filelight sweeper"
 X_PACKAGES="p7zip-full zip unzip rar unrar zstd"
 DEVELOPMENT_PACKAGES="build-essential cmake python3-dev python3-pip autoconf automake libtool cmake libyaml-dev libpq-dev libmariadb-dev sqlite3"
 PLATFORM_APP_PACKAGES="snapd flatpak"
 MEDIA_PACKAGES="vlc gimp inkscape imagemagick"
 BROWSER_PACKAGES="chromium"
-OFFICE_PACKAGES="libreoffice gnome-calculator"
-NETWORK_PACKAGES="nmap network-manager-gnome network-manager-openvpn network-manager-openvpn-gnome"
-OTHER_PACKAGES="transmission-gtk zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa redshift alacritty neofetch ttf-mscorefonts-installer"
+OFFICE_PACKAGES="libreoffice"
+NETWORK_PACKAGES="nmap openvpn network-manager network-manager-openvpn"
+OTHER_PACKAGES="transmission-qt zsh ccrypt silversearcher-ag fzf tmux stow xclip youtube-dl exa alacritty neofetch ttf-mscorefonts-installer"
 
 # Update repositories
 echo "" > /etc/apt/sources.list
@@ -40,8 +39,7 @@ apt update && apt upgrade -y
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y $INITIAL_PACKAGES \
   $DRIVERS_PACKAGES \
-  $GRAPHICS_PACKAGES \
-  $XFCE_PACKAGES \
+  $KDE_PACKAGES \
   $X_PACKAGES \
   $DEVELOPMENT_PACKAGES \
   $PLATFORM_APP_PACKAGES \
